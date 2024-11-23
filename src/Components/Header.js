@@ -1,12 +1,39 @@
-import React from "react";
-import { Youtube_Icon } from "../Utiles/Constant";
+import React, { useEffect, useRef, useState } from "react";
+import { Youtube_Icon, Youtube_Search_Url } from "../Utiles/Constant";
 import { FaMicrophone } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleExpansion } from "../Utiles/SidebarSlice";
+import { cacheResults } from "../Utiles/SearchSlice";
 const Header = () => {
+  const [searchText, setSearchText] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
   const dispatch = useDispatch();
+  const searchCache = useSelector((store) => store.mySearch);
   const toggleMenu = () => {
     dispatch(toggleExpansion());
+  };
+
+  useEffect(() => {
+    // console.log(searchText);
+
+    const timmer = setTimeout(() => {
+      if (searchCache[searchText]) {
+        setSuggestions(searchCache[searchText]);
+      } else {
+        searchResults();
+      }
+    }, 200);
+    return () => {
+      clearTimeout(timmer);
+    };
+  }, [searchText]);
+  const searchResults = async () => {
+    const data = await fetch(Youtube_Search_Url + searchText);
+    const json = await data.json();
+    setSuggestions(json.items);
+    dispatch(cacheResults({ [searchText]: json.items }));
+    // console.log(json?.items[3]?.snippet?.title);
   };
   return (
     <>
@@ -42,10 +69,14 @@ const Header = () => {
 
         {/* Center Section - Search Bar */}
         <div className="flex flex-1 items-center justify-center mx-4 max-w-xl">
-          <div className="flex w-full bg-black border border-[#303030] rounded-full overflow-hidden">
+          <div className="flex  relative w-full bg-black border border-[#303030] rounded-full overflow-hidden">
             <input
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
               type="text"
               placeholder="Search..."
+              onFocus={() => setShowSearch(true)}
+              onBlur={() => setShowSearch(false)}
               className="flex-grow px-4 py-2 bg-transparent text-white outline-none placeholder-gray-400"
             />
             <button className="p-2 bg-transparent hover:bg-gray-600">
@@ -58,6 +89,18 @@ const Header = () => {
                 <path d="M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm5-8h1a6 6 0 1 0-1.93 4.42L18 19.3l1.3-1.29-3.3-3.3A5.97 5.97 0 0 0 15 10z" />
               </svg>
             </button>
+            {showSearch && (
+              <div className=" z-30 px-4 py-2 bg-white fixed top-16">
+                {suggestions &&
+                  Array.isArray(suggestions) &&
+                  suggestions.length > 0 &&
+                  suggestions.map((item) => (
+                    <ol className="text-black py-2" key={item.id}>
+                      {item.snippet.title || "No Title Available"}
+                    </ol>
+                  ))}
+              </div>
+            )}
           </div>
           <button className="ml-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-full">
             <FaMicrophone />

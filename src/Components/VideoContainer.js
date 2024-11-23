@@ -25,9 +25,9 @@ const VideoContainer = () => {
 
         return (
           <>
-            <NavLink to={"/watch?v=" + video.id}>
+            <NavLink key={video.id} to={"/watch?v=" + video.id}>
               <div className=" w-72">
-                <div key={video.id}>
+                <div >
                   <img src={snippet.thumbnails.medium.url} alt="Thumbnail" />
                   <div>
                     <h2>{snippet.title}</h2>
