@@ -23,44 +23,44 @@ export const Youtube_Search_Url =
   "&maxResults=20&q=";
 export const commentsData = [
   {
-    name: "Akshay Saini",
+    name: "Jeevesh Mahato",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [],
   },
   {
-    name: "Akshay Saini",
+    name: "Jeevesh Mahato",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [
       {
-        name: "Akshay Saini",
+        name: "Jeevesh Mahato",
         text: "Lorem ipsum dolor sit amet, consectetur adip",
         replies: [],
       },
       {
-        name: "Akshay Saini",
+        name: "Jeevesh Mahato",
         text: "Lorem ipsum dolor sit amet, consectetur adip",
         replies: [
           {
-            name: "Akshay Saini",
+            name: "Jeevesh Mahato",
             text: "Lorem ipsum dolor sit amet, consectetur adip",
             replies: [
               {
-                name: "Akshay Saini",
+                name: "Jeevesh Mahato",
                 text: "Lorem ipsum dolor sit amet, consectetur adip",
                 replies: [
                   {
-                    name: "Akshay Saini",
+                    name: "Jeevesh Mahato",
                     text: "Lorem ipsum dolor sit amet, consectetur adip",
                     replies: [
                       {
-                        name: "Akshay Saini",
+                        name: "Jeevesh Mahato",
                         text: "Lorem ipsum dolor sit amet, consectetur adip",
                         replies: [],
                       },
                     ],
                   },
                   {
-                    name: "Akshay Saini",
+                    name: "Jeevesh Mahato",
                     text: "Lorem ipsum dolor sit amet, consectetur adip",
                     replies: [],
                   },
@@ -73,22 +73,22 @@ export const commentsData = [
     ],
   },
   {
-    name: "Akshay Saini",
+    name: "Jeevesh Mahato",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [],
   },
   {
-    name: "Akshay Saini",
+    name: "Jeevesh Mahato",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [],
   },
   {
-    name: "Akshay Saini",
+    name: "Jeevesh Mahato",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [],
   },
   {
-    name: "Akshay Saini",
+    name: "Jeevesh Mahato",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [],
   },
