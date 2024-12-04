@@ -21,77 +21,80 @@ export const Youtube_Search_Url =
   "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=" +
   Youtube_API_KEy +
   "&maxResults=20&q=";
-export  const commentsData = [
-    {
-      name: "Akshay Saini",
-      text: "Lorem ipsum dolor sit amet, consectetur adip",
-      replies: [],
-    },
-    {
-      name: "Akshay Saini",
-      text: "Lorem ipsum dolor sit amet, consectetur adip",
-      replies: [
-        {
-          name: "Akshay Saini",
-          text: "Lorem ipsum dolor sit amet, consectetur adip",
-          replies: [],
-        },
-        {
-          name: "Akshay Saini",
-          text: "Lorem ipsum dolor sit amet, consectetur adip",
-          replies: [
-            {
-              name: "Akshay Saini",
-              text: "Lorem ipsum dolor sit amet, consectetur adip",
-              replies: [
-                {
-                  name: "Akshay Saini",
-                  text: "Lorem ipsum dolor sit amet, consectetur adip",
-                  replies: [
-                    {
-                      name: "Akshay Saini",
-                      text: "Lorem ipsum dolor sit amet, consectetur adip",
-                      replies: [
-                        {
-                          name: "Akshay Saini",
-                          text: "Lorem ipsum dolor sit amet, consectetur adip",
-                          replies: [],
-                        },
-                      ],
-                    },
-                    {
-                      name: "Akshay Saini",
-                      text: "Lorem ipsum dolor sit amet, consectetur adip",
-                      replies: [],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Akshay Saini",
-      text: "Lorem ipsum dolor sit amet, consectetur adip",
-      replies: [],
-    },
-    {
-      name: "Akshay Saini",
-      text: "Lorem ipsum dolor sit amet, consectetur adip",
-      replies: [],
-    },
-    {
-      name: "Akshay Saini",
-      text: "Lorem ipsum dolor sit amet, consectetur adip",
-      replies: [],
-    },
-    {
-      name: "Akshay Saini",
-      text: "Lorem ipsum dolor sit amet, consectetur adip",
-      replies: [],
-    },
-  ];
+export const commentsData = [
+  {
+    name: "Akshay Saini",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+  {
+    name: "Akshay Saini",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [
+      {
+        name: "Akshay Saini",
+        text: "Lorem ipsum dolor sit amet, consectetur adip",
+        replies: [],
+      },
+      {
+        name: "Akshay Saini",
+        text: "Lorem ipsum dolor sit amet, consectetur adip",
+        replies: [
+          {
+            name: "Akshay Saini",
+            text: "Lorem ipsum dolor sit amet, consectetur adip",
+            replies: [
+              {
+                name: "Akshay Saini",
+                text: "Lorem ipsum dolor sit amet, consectetur adip",
+                replies: [
+                  {
+                    name: "Akshay Saini",
+                    text: "Lorem ipsum dolor sit amet, consectetur adip",
+                    replies: [
+                      {
+                        name: "Akshay Saini",
+                        text: "Lorem ipsum dolor sit amet, consectetur adip",
+                        replies: [],
+                      },
+                    ],
+                  },
+                  {
+                    name: "Akshay Saini",
+                    text: "Lorem ipsum dolor sit amet, consectetur adip",
+                    replies: [],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Akshay Saini",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+  {
+    name: "Akshay Saini",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+  {
+    name: "Akshay Saini",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+  {
+    name: "Akshay Saini",
+    text: "Lorem ipsum dolor sit amet, consectetur adip",
+    replies: [],
+  },
+];
 
-export  const user_icons= "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
+export const user_icons =
+  "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png";
+
+export const  Live_Chat_Count=100
