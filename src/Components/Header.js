@@ -29,11 +29,10 @@ const Header = () => {
     };
   }, [searchText]);
   const searchResults = async () => {
-    const data = await fetch(Youtube_Search_Url + searchText);
+    const data = await fetch(Youtube_Search_Url + searchText, { mode: "cors" });
     const json = await data.json();
     setSuggestions(json[1]);
     dispatch(cacheResults({ [searchText]: json[1] }));
-    // console.log(json?.items[3]?.snippet?.title);
   };
   return (
     <>
@@ -95,7 +94,10 @@ const Header = () => {
                   Array.isArray(suggestions) &&
                   suggestions.length > 0 &&
                   suggestions.map((item) => (
-                    <ol className="py-2 text-black px-3 shadow-sm hover:bg-gray-100" key={item}>
+                    <ol
+                      className="py-2 text-black px-3 shadow-sm hover:bg-gray-100"
+                      key={item}
+                    >
                       {item || "No Title Available"}
                     </ol>
                   ))}
