@@ -16,7 +16,7 @@ export const Menus = [
   "Phineas and freb",
 ];
 export const Youtube_Search_Url =
-  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+  "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
 export const commentsData = [
   {
