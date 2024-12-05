@@ -1,8 +1,6 @@
 export const Youtube_Icon = "https://m.youtube.com/static/logos/favicon.ico";
-const Youtube_API_KEy = "AIzaSyA8mv6880psoW2Nu6-ChY452mJaz8gs5to";
 export const Youtube_url =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
-  Youtube_API_KEy;
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" + process.env.REACT_APP_YOUTUBE_KEY;
 export const Menus = [
   "All",
   " Music",
