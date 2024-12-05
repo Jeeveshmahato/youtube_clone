@@ -18,9 +18,8 @@ export const Menus = [
   "Phineas and freb",
 ];
 export const Youtube_Search_Url =
-  "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=" +
-  Youtube_API_KEy +
-  "&maxResults=20&q=";
+  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
 export const commentsData = [
   {
     name: "Jeevesh Mahato",
@@ -97,4 +96,4 @@ export const commentsData = [
 export const user_icons =
   "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png";
 
-export const  Live_Chat_Count=100
+export const Live_Chat_Count = 100;

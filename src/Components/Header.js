@@ -31,8 +31,8 @@ const Header = () => {
   const searchResults = async () => {
     const data = await fetch(Youtube_Search_Url + searchText);
     const json = await data.json();
-    setSuggestions(json.items);
-    dispatch(cacheResults({ [searchText]: json.items }));
+    setSuggestions(json[1]);
+    dispatch(cacheResults({ [searchText]: json[1] }));
     // console.log(json?.items[3]?.snippet?.title);
   };
   return (
@@ -90,13 +90,13 @@ const Header = () => {
               </svg>
             </button>
             {showSearch && (
-              <div className=" z-30 px-4 py-2 bg-white fixed top-16">
+              <div className=" fixed bg-white h-fit top-10 py-2 px-2 md:w-[330px] sm:w-[280px] w-[190px] lg:w-[500px] shadow-lg rounded-lg border border-gray-100">
                 {suggestions &&
                   Array.isArray(suggestions) &&
                   suggestions.length > 0 &&
                   suggestions.map((item) => (
-                    <ol className="text-black py-2" key={item.id}>
-                      {item.snippet.title || "No Title Available"}
+                    <ol className="py-2 text-black px-3 shadow-sm hover:bg-gray-100" key={item}>
+                      {item || "No Title Available"}
                     </ol>
                   ))}
               </div>
