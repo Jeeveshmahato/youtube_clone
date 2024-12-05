@@ -1,17 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { Youtube_Icon } from "../Utiles/Constant";
 
 const Sidebar = () => {
   const menutoggle = useSelector((store) => store.expandMenu.isExpanded);
   return (
     <>
       {menutoggle && (
-        <div className="w-fit bg-black text-white h-screen p-4 space-y-4">
+        <div className="w-fit bg-black text-[14px] lg:text-[16px] text-white h-full p-2 md:p-4 space-y-4">
           <div>
             {/* Section: Home */}
             <div>
               <ul className="space-y-2">
+                <div className="flex md:hidden items-center">
+                  <img src={Youtube_Icon} alt="youtube logo" />
+                  <span className="ml-2 text-[14px] lg:text-xl font-semibold">YouTube</span>
+                  <span className="text-xs text-gray-400 ml-1">IN</span>
+                </div>
                 <NavLink to="/">
                   <li className="flex items-center space-x-4 p-2 rounded hover:bg-gray-700 cursor-pointer">
                     <svg

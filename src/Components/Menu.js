@@ -3,7 +3,7 @@ import { Menus } from "../Utiles/Constant";
 const Menu = () => {
   return (
     <>
-     <div className=" flex justify-between w-full bg-black">
+     <div className=" flex flex-wrap gap-2 justify-between w-full bg-black">
      {Menus.map((menu) => {
         return (
           <>

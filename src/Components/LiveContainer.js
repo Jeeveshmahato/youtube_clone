@@ -48,7 +48,7 @@ const LiveContainer = () => {
           );
           setLiveMessage("");
         }}
-        className="flex items-center border border-gray-800  p-2  rounded-lg w-full"
+        className="flex items-center mx-5 border border-gray-800  p-2  rounded-lg w-[90%] mt-2"
       >
         {/* Input Field */}
         <input

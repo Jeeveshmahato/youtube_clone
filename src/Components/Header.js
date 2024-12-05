@@ -39,7 +39,7 @@ const Header = () => {
     <>
       <header className="flex items-center justify-between bg-black text-white px-4 py-2">
         {/* Left Section - Menu and Logo */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4">
           {/* Menu Icon */}
           <button
             onClick={toggleMenu}
@@ -60,7 +60,7 @@ const Header = () => {
           </button>
 
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="md:flex hidden items-center">
             <img src={Youtube_Icon} alt="youtube logo" />
             <span className="ml-2 text-xl font-semibold">YouTube</span>
             <span className="text-xs text-gray-400 ml-1">IN</span>
@@ -77,7 +77,7 @@ const Header = () => {
               placeholder="Search..."
               onFocus={() => setShowSearch(true)}
               onBlur={() => setShowSearch(false)}
-              className="flex-grow px-4 py-2 bg-transparent text-white outline-none placeholder-gray-400"
+              className="flex-grow px-4 w-24 sm:w-full py-2 bg-transparent text-white outline-none placeholder-gray-400"
             />
             <button className="p-2 bg-transparent hover:bg-gray-600">
               <svg
@@ -108,7 +108,7 @@ const Header = () => {
         </div>
 
         {/* Right Section - Icons */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4">
           {/* Create Icon */}
           <button className="p-2 hidden rounded hover:bg-gray-700">
             <svg
