@@ -95,3 +95,4 @@ export const user_icons =
   "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png";
 
 export const Live_Chat_Count = 100;
+export const proxyUrl = 'https://cors-anywhere.herokuapp.com/'

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Youtube_Icon, Youtube_Search_Url } from "../Utiles/Constant";
+import { proxyUrl, Youtube_Icon, Youtube_Search_Url } from "../Utiles/Constant";
 import { FaMicrophone } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleExpansion } from "../Utiles/SidebarSlice";
@@ -29,7 +29,7 @@ const Header = () => {
     };
   }, [searchText]);
   const searchResults = async () => {
-    const data = await fetch(Youtube_Search_Url + searchText, { mode: "cors" });
+    const data = await fetch(proxyUrl +Youtube_Search_Url + searchText, { mode: "cors" });
     const json = await data.json();
     setSuggestions(json[1]);
     dispatch(cacheResults({ [searchText]: json[1] }));
