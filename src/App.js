@@ -8,7 +8,12 @@ import WatchPage from "./Components/WatchPage";
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Body />,
+    element: (
+      <>
+        <Header />
+        <Body />
+      </>
+    ),
     children: [
       {
         path: "/",
@@ -23,12 +28,7 @@ const appRouter = createBrowserRouter([
 ]);
 
 const App = () => {
-  return (
-    <>
-      <Header />
-      <RouterProvider router={appRouter} />
-    </>
-  );
+  return <RouterProvider router={appRouter} />;
 };
 
 export default App;

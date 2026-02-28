@@ -5,7 +5,7 @@ const SearchSlice = createSlice({
   initialState: {},
   reducers: {
     cacheResults: (state, action) => {
-      state = Object.assign(state, action.payload); // Correctly update mySearch
+      Object.assign(state, action.payload);
     },
   },
 });
