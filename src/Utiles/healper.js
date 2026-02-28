@@ -1,4 +1,4 @@
-var nameList = [
+const nameList = [
   "Time",
   "Past",
   "Future",

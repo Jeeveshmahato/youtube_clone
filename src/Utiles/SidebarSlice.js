@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const SidebarSlice = createSlice({
     name: "sidebar",
     initialState: {
-        isExpanded: false,
+        isExpanded: true,
     },
     reducers: {
         toggleExpansion: (state) => {

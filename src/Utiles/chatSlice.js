@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { Live_Chat_Count } from "./Constant";
 
 const chatSlice = createSlice({
@@ -7,11 +7,19 @@ const chatSlice = createSlice({
     messages: [],
   },
   reducers: {
-    addMessage: (state, action) => {
-      state.messages.splice(Live_Chat_Count, 1);
-      state.messages.unshift(action.payload);
+    addMessage: {
+      reducer(state, action) {
+        if (state.messages.length >= Live_Chat_Count) {
+          state.messages.pop();
+        }
+        state.messages.unshift(action.payload);
+      },
+      prepare(data) {
+        return { payload: { ...data, id: nanoid() } };
+      },
     },
   },
 });
+
 export const { addMessage } = chatSlice.actions;
 export default chatSlice.reducer;

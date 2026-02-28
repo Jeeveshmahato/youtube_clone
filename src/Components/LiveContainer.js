@@ -5,10 +5,13 @@ import { addMessage } from "../Utiles/chatSlice";
 import { generateName, generatetext } from "../Utiles/healper";
 import { user_icons } from "../Utiles/Constant";
 
+const MAX_MESSAGE_LENGTH = 200;
+
 const LiveContainer = () => {
   const [liveMessage, setLiveMessage] = useState("");
   const dispatch = useDispatch();
   const messagesData = useSelector((store) => store.chat.messages);
+
   useEffect(() => {
     const interval = setInterval(() => {
       dispatch(
@@ -20,51 +23,58 @@ const LiveContainer = () => {
       );
     }, 1500);
     return () => clearInterval(interval);
-  }, []);
+  }, [dispatch]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const trimmed = liveMessage.trim();
+    if (!trimmed) return;
+    dispatch(
+      addMessage({
+        username: "Jeevesh Mahato",
+        text: trimmed.slice(0, MAX_MESSAGE_LENGTH),
+        UserPic: user_icons,
+      })
+    );
+    setLiveMessage("");
+  };
 
   return (
-    <>
-      <div className=" flex flex-col-reverse  h-[515px] overflow-y-scroll">
-        {messagesData.map((message) => {
-          const { id, UserPic, username, text } = message;
-          return (
-            <>
-              <div key={message.id} className=" ">
-                <Messages name={username} text={text} userPic={UserPic} />
-              </div>
-            </>
-          );
-        })}
+    <div className="flex flex-col h-[515px] bg-[#1a1a1a] rounded-xl border border-[#303030] overflow-hidden">
+      <div className="px-4 py-3 border-b border-[#303030]">
+        <h3 className="text-white font-medium text-sm">Live Chat</h3>
+      </div>
+      <div className="flex-1 flex flex-col-reverse overflow-y-auto scrollbar-thin">
+        {messagesData.map((message, index) => (
+          <Messages
+            key={message.id || index}
+            name={message.username}
+            text={message.text}
+            userPic={message.UserPic}
+          />
+        ))}
       </div>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          dispatch(
-            addMessage({
-              name: "Jeevesh Mahato",
-              text: liveMessage,
-              UserPic: user_icons,
-            })
-          );
-          setLiveMessage("");
-        }}
-        className="flex items-center mx-5 border border-gray-800  p-2  rounded-lg w-[90%] mt-2"
+        onSubmit={handleSubmit}
+        className="flex items-center gap-2 p-3 border-t border-[#303030]"
       >
-        {/* Input Field */}
         <input
           type="text"
           placeholder="Chat..."
           value={liveMessage}
+          maxLength={MAX_MESSAGE_LENGTH}
           onChange={(e) => setLiveMessage(e.target.value)}
-          className="flex-1 bg-transparent border-none outline-none  placeholder-gray-500"
+          className="flex-1 bg-[#121212] border border-[#303030] rounded-full px-4 py-2 text-white text-sm outline-none placeholder-gray-500 focus:border-blue-500 transition-colors"
         />
-
-        {/* Heart Icon */}
-        <button className="ml-2 px-4 py-2 rounded-lg bg-white hover:bg-gray-600 text-gray-600 hover:text-white transition">
+        <button
+          type="submit"
+          disabled={!liveMessage.trim()}
+          className="px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+        >
           Send
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

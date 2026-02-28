@@ -1,16 +1,15 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import Content from "./Content";
 import { Outlet } from "react-router-dom";
 
 const Body = () => {
   return (
-    <>
-      <div className=" flex gap-3">
-        <Sidebar />
+    <div className="flex bg-[#0f0f0f] min-h-screen">
+      <Sidebar />
+      <div className="flex-1 overflow-x-hidden">
         <Outlet />
       </div>
-    </>
+    </div>
   );
 };
 
