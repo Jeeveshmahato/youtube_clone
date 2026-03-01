@@ -30,8 +30,8 @@ const WatchPage = () => {
 
   return (
     <div className="w-full bg-[#0f0f0f] min-h-screen">
-      <div className="flex xl:flex-row flex-col items-start gap-4 w-full p-4">
-        <div className="xl:w-[65%] w-full">
+      <div className="flex lg:flex-row flex-col items-start gap-4 w-full p-2 sm:p-4">
+        <div className="lg:w-[65%] w-full">
           <div className="relative w-full aspect-video rounded-xl overflow-hidden">
             <iframe
               className="absolute inset-0 w-full h-full"
@@ -45,7 +45,7 @@ const WatchPage = () => {
             />
           </div>
         </div>
-        <div className="xl:w-[35%] w-full">
+        <div className="lg:w-[35%] w-full">
           <LiveContainer />
         </div>
       </div>

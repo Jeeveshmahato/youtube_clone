@@ -40,7 +40,7 @@ const LiveContainer = () => {
   };
 
   return (
-    <div className="flex flex-col h-[515px] bg-[#1a1a1a] rounded-xl border border-[#303030] overflow-hidden">
+    <div className="flex flex-col h-[350px] sm:h-[515px] bg-[#1a1a1a] rounded-xl border border-[#303030] overflow-hidden">
       <div className="px-4 py-3 border-b border-[#303030]">
         <h3 className="text-white font-medium text-sm">Live Chat</h3>
       </div>
