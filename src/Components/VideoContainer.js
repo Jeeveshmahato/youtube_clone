@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -78,8 +78,26 @@ const VideoShimmer = () => (
   </div>
 );
 
-const VideoContainer = () => {
+const VideoContainer = ({ onLoadMore, hasMore, isLoadingMore }) => {
   const videos = useSelector((store) => store?.MyVideos?.MyVideo);
+  const sentinelRef = useRef(null);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && hasMore && !isLoadingMore) {
+          onLoadMore();
+        }
+      },
+      { threshold: 0.1, rootMargin: "400px" }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [onLoadMore, hasMore, isLoadingMore]);
 
   if (!videos) {
     return (
@@ -96,6 +114,20 @@ const VideoContainer = () => {
       {videos.map((video) => (
         <VideoCard key={video.id} video={video} />
       ))}
+      {/* Sentinel for infinite scroll */}
+      {hasMore && (
+        <div
+          ref={sentinelRef}
+          className="col-span-full flex justify-center py-8"
+        >
+          {isLoadingMore && (
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <span className="text-gray-400 text-sm">Loading more videos...</span>
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 };
