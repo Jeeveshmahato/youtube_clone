@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Menus } from "../Utiles/Constant";
+import { setActiveFilter } from "../Utiles/VideoSlice";
 
 const Menu = () => {
-  const [active, setActive] = useState("All");
+  const dispatch = useDispatch();
+  const active = useSelector((store) => store.MyVideos.activeFilter);
+
+  const handleFilterClick = (menu) => {
+    dispatch(setActiveFilter(menu));
+  };
 
   return (
     <div className="relative bg-[#0f0f0f] sticky top-14 z-40 border-b border-[#272727]">
@@ -10,7 +17,7 @@ const Menu = () => {
         {Menus.map((menu) => (
           <button
             key={menu}
-            onClick={() => setActive(menu)}
+            onClick={() => handleFilterClick(menu)}
             className={`px-3 sm:px-4 py-1.5 text-sm font-medium rounded-lg whitespace-nowrap transition-colors min-h-[32px] sm:min-h-[36px] ${
               active === menu
                 ? "bg-white text-black"

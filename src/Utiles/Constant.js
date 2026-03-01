@@ -5,6 +5,11 @@ export const Youtube_url = API_KEY
   ? `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${API_KEY}`
   : "";
 
+export const getFilteredVideoUrl = (query) => {
+  if (!API_KEY) return "";
+  return `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${encodeURIComponent(query)}&type=video&regionCode=IN&key=${API_KEY}`;
+};
+
 export const Menus = [
   "All",
   "Music",
