@@ -92,7 +92,7 @@ const VideoContainer = ({ onLoadMore, hasMore, isLoadingMore }) => {
           onLoadMore();
         }
       },
-      { threshold: 0.1, rootMargin: "400px" }
+      { threshold: 0.1, rootMargin: "600px" }
     );
 
     observer.observe(sentinel);
@@ -118,14 +118,24 @@ const VideoContainer = ({ onLoadMore, hasMore, isLoadingMore }) => {
       {hasMore && (
         <div
           ref={sentinelRef}
-          className="col-span-full flex justify-center py-8"
+          className="col-span-full flex justify-center py-6"
         >
           {isLoadingMore && (
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              <span className="text-gray-400 text-sm">Loading more videos...</span>
+            <div className="flex flex-col items-center gap-3">
+              <div className="flex gap-1">
+                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+              </div>
+              <span className="text-gray-500 text-xs">Loading more videos</span>
             </div>
           )}
+        </div>
+      )}
+      {/* End of list */}
+      {!hasMore && videos.length > 0 && (
+        <div className="col-span-full text-center py-8">
+          <p className="text-gray-600 text-sm">No more videos to load</p>
         </div>
       )}
     </>
