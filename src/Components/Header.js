@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleExpansion } from "../Utiles/SidebarSlice";
 import { cacheResults } from "../Utiles/SearchSlice";
 import { NavLink } from "react-router-dom";
+import logo from "../youtube-logo-icon.svg"
 
+
+<<<<<<< HEAD
 const YoutubeLogo = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +39,8 @@ const YoutubeLogo = () => (
     </g>
   </svg>
 );
+=======
+>>>>>>> 8b033383c585a3767d1d5e3246596dad4fcf3191
 
 const Header = () => {
   const [searchText, setSearchText] = useState("");
@@ -94,8 +99,10 @@ const Header = () => {
         </button>
 
         <NavLink to="/" className="flex items-center gap-0.5 shrink-0">
-          <YoutubeLogo />
+          <img src={logo} alt="YouTube Logo" className="h-6" />
           <span className="text-[10px] text-gray-400 align-super -ml-0.5">IN</span>
+
+         
         </NavLink>
       </div>
 
