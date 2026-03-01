@@ -35,7 +35,7 @@ const Content = () => {
           <p className="text-gray-400 text-lg">Failed to load videos. Please try again later.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-6 sm:gap-x-4 sm:gap-y-8 px-2 sm:px-4 pb-8 pt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-6 sm:gap-x-4 sm:gap-y-8 px-2 sm:px-4 pb-8 pt-[60px]">
           <VideoContainer />
         </div>
       )}
