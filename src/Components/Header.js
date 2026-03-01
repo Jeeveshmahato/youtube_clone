@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../youtube-logo-icon.svg"
 
 
-<<<<<<< HEAD
+
 const YoutubeLogo = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -39,8 +39,7 @@ const YoutubeLogo = () => (
     </g>
   </svg>
 );
-=======
->>>>>>> 8b033383c585a3767d1d5e3246596dad4fcf3191
+
 
 const Header = () => {
   const [searchText, setSearchText] = useState("");
